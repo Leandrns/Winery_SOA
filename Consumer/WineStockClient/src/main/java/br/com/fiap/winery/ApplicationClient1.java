@@ -11,7 +11,7 @@ public class ApplicationClient1 {
     public static void main(String[] args) throws MalformedURLException {
         final String WSDL = "http://localhost:8085/WineStockService?wsdl";
         final String TARGET = "http://winery.fiap.com.br/";
-        final String NAME = "WineWarningServiceImplementationService";
+        final String NAME = "WineStockServiceImplementationService";
 
         URL url = new URL(WSDL);
         QName qName = new QName(TARGET, NAME);
