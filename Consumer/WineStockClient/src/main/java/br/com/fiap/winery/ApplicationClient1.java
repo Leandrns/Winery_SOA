@@ -1,5 +1,6 @@
 package br.com.fiap.winery;
 
+import br.com.fiap.winery.stubclasses.WineStockService;
 import jakarta.xml.ws.Service;
 
 import javax.xml.namespace.QName;
@@ -8,9 +9,9 @@ import java.net.URL;
 
 public class ApplicationClient1 {
     public static void main(String[] args) throws MalformedURLException {
-        final String WSDL = "";
-        final String TARGET = "";
-        final String NAME = "";
+        final String WSDL = "http://localhost:8085/WineStockService?wsdl";
+        final String TARGET = "http://winery.fiap.com.br/";
+        final String NAME = "WineWarningServiceImplementationService";
 
         URL url = new URL(WSDL);
         QName qName = new QName(TARGET, NAME);
@@ -18,9 +19,8 @@ public class ApplicationClient1 {
 
         WineStockService wineStockService = service.getPort(WineStockService.class);
 
-        String menu = wineStockService.getMenu(WineStockService.class);
+        String menu = wineStockService.getMenu();
 
-        System.out.println(wineStockService.showResult(menu));
-
+        System.out.println(menu);
     }
 }
